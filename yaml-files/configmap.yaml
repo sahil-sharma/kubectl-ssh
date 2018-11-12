@@ -1,0 +1,21 @@
+apiVersion: v1
+data:
+  AEROSPIKE_QA_NAMESPACE_PREFIX: qas5
+  DJANGO_SETTINGS_MODULE: config.settings.prod
+  NEW_RELIC_APP_NAME: DEV_HULK_SVC
+  DEFAULT_LOG_LEVEL: DEBUG
+  AEROSPIKE_INMEMORY_NAMESPACE: bbcache
+  AEROSPIKE_PERSISTENT_NAMESPACE: bigB
+  AEROSPIKE_LARGEOBJECT_NAMESPACE: bbcache
+  DB_CONNECTION_MAX_AGE: "300"
+  MAX_WORKERS_THREADS: "1"
+  GUNICORN_WORKERS_COUNT: "9"
+  IS_DJANGO_SETTINGS_DEBUG_ENABLED: "true"
+
+kind: ConfigMap
+metadata:
+  labels:
+    app: myapp
+    env: dev
+  name: app-configmap
+  namespace: appnamespace
