@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: musicstore
+    env: dev
+  name: musicstore-service
+  namespace: appnamespace
+spec:
+  ports:
+  - name: musicstore-svcport
+    port: 3030
+    protocol: TCP
+    targetPort: 3030
+  selector:
+    app: musicstore
+    name: musicstore
+  type: NodePort

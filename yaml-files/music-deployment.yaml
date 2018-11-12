@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: musicstore
+    env: dev
+  name: musicstore-deployment
+  namespace: appnamespace
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: musicstore
+      name: musicstore
+      env: dev
+  strategy:
+    rollingUpdate:
+      maxSurge: 2
+      maxUnavailable: 1
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: musicstore
+        env: dev
+        name: musicstore
+        version: v1
+    spec:
+      containers:
+      - name: musicstore
+        image: ghostroot/k8examples:apimusicstore
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 3030
+          name: musicappport
+          protocol: TCP
+      terminationGracePeriodSeconds: 10
