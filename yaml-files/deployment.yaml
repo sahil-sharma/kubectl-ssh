@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: myapp
+    env: dev
+  name: app-deployment
+  namespace: appnamespace
+spec:
+  replicas: 8
+  selector:
+    matchLabels:
+      app: myapp
+      name: myapp
+      env: dev
+  strategy:
+    rollingUpdate:
+      maxSurge: 2
+      maxUnavailable: 1
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: myapp
+        env: dev
+        name: myapp
+        version: v1
+    spec:
+      containers:
+      - name: myapp
+        image: ghostroot/k8examples:bullscows-canary
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 3030
+          name: appport
+          protocol: TCP
+      terminationGracePeriodSeconds: 10
