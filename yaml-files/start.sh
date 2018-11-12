@@ -18,4 +18,4 @@ kubectl rollout status $deployment_name -n=appnamespace
 echo ""
 kubectl rollout history $deployment_name -n=appnamespace
 echo ""
-
+kubectl get deploy -o name -n=appnamespace
