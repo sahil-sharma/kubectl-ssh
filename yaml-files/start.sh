@@ -10,9 +10,9 @@ echo $deployment_name
 sleep 3
 echo ""
 echo -e "Executing YAML file..."
-kubectl create -f $HOME/new-files/namespace.yaml
+kubectl apply -f $HOME/new-files/namespace.yaml
 echo ""
-kubectl create -f $HOME/new-files/deployment.yaml --record=true -f $HOME/new-files/service.yaml
+kubectl apply -f $HOME/new-files/deployment.yaml --record=true -f $HOME/new-files/service.yaml
 echo ""
 kubectl rollout status $deployment_name -n=appnamespace
 echo ""
