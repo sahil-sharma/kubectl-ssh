@@ -2,7 +2,7 @@
 #set -e
 echo ""
 echo -e "Pulling changes from the repo..."
-cd /home/ubuntu/kubectl-ssh/yaml-files
+cd /home/ubuntu/code/kubectl-ssh/yaml-files
 echo ""
 echo -e "List of running deployments"
 deployment_name=`kubectl get deploy -o name -n=appnamespace`
