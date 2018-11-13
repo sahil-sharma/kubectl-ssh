@@ -1,10 +1,6 @@
 #!/bin/bash
 #set -e
-pwd
-sleep 10
 cd $HOME/kubectl-ssh/yaml-files
-pwd
-sleep 10
 echo -e "List of running deployments"
 deployment_name=`kubectl get deploy -o name -n=dev`
 echo $deployment_name
@@ -22,18 +18,14 @@ sleep 3
 kubectl apply -f $HOME/kubectl-ssh/yaml-files/deployment.yaml --record=true -f $HOME/kubectl-ssh/yaml-files/service.yaml -f $HOME/kubectl-ssh/yaml-files/configmap.yaml
 sleep 3
 echo ""
-if [ -z "$deployment_name" ]; then
-   #echo "There is no such deployment for this application"
-   exit
-else
-   deployment_name=`kubectl get deploy -o name -n=appnamespace`
-   kubectl rollout status $deployment_name -n=appnamespace
-   echo ""
-   kubectl rollout history $deployment_name -n=appnamespace
-   echo ""
-   echo -e "Final set of running deployments are as... :"
-   kubectl get deploy -o name -n=appnamespace
-   echo ""
-   sleep 3
-fi
+deployment_name=`kubectl get deploy -o name -n=dev`
+kubectl rollout status $deployment_name -n=dev
+echo ""
+kubectl rollout history $deployment_name -n=dev
+echo ""
+echo -e "Final set of running deployment and pod are as..."
+kubectl get deploy -o name -n=dev
+echo ""
+kubectl get po -o name -n=dev
+sleep 3
 
