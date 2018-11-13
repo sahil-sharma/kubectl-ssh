@@ -28,7 +28,7 @@ spec:
     spec:
       containers:
       - name: myapp
-        image: ghostroot/k8examples:bullscows-canary
+        image: ghostroot/k8examples:bullscows-canaryv1
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 3030
