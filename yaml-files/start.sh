@@ -1,6 +1,10 @@
 #!/bin/bash
 #set -e
+pwd
+sleep 10
 cd $HOME/kubectl-ssh/yaml-files
+pwd
+sleep 10
 echo -e "List of running deployments"
 deployment_name=`kubectl get deploy -o name -n=appnamespace`
 echo $deployment_name
