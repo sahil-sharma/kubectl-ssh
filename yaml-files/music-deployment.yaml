@@ -5,7 +5,7 @@ metadata:
     app: musicstore
     env: dev
   name: musicstore-deployment
-  namespace: appnamespace
+  namespace: dev
 spec:
   replicas: 10
   selector:

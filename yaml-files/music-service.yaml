@@ -5,7 +5,7 @@ metadata:
     app: musicstore
     env: dev
   name: musicstore-service
-  namespace: appnamespace
+  namespace: dev
 spec:
   ports:
   - name: musicstore-svcport

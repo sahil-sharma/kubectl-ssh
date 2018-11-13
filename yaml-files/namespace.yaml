@@ -4,4 +4,4 @@ metadata:
   labels:
     app: myapp
     env: dev
-  name: appnamespace
+  name: dev

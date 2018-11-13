@@ -5,7 +5,7 @@ metadata:
     app: myapp
     env: dev
   name: app-service
-  namespace: appnamespace
+  namespace: dev
 spec:
   ports:
   - name: app-svcport
