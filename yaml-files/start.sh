@@ -26,6 +26,6 @@ echo ""
 echo -e "Final set of running deployment and pod are as..."
 kubectl get deploy -o name -n=development
 echo ""
-kubectl get po -o name -n=development
+kubectl get po  -n=development
 sleep 3
 
