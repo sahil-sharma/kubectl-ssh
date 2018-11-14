@@ -18,5 +18,5 @@ metadata:
     app: myapp
     env: dev
   name: app-configmap
-  namespace: dev
+  namespace: development
 

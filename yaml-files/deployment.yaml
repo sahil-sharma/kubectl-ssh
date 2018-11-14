@@ -5,7 +5,7 @@ metadata:
     app: myapp
     env: dev
   name: app-deployment
-  namespace: dev
+  namespace: development
 spec:
   replicas: 15
   selector:
